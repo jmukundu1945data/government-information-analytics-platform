@@ -1,0 +1,4 @@
+reporting_period,province,district,program_id,indicator_code,indicator_name,reported_value,target_value,reporting_officer,submission_date,is_valid_geo,ministry,source_file,ingestion_timestamp
+2026Q1,Eastern,Chipata,MCTI001,MCTI_IND_001,SMEs Supported,120,100,Provincial Commerce Officer,2026-04-15,True,MCTI,MCTI_MSME_Q1_2026_Eastern.csv,2026-05-23 08:51:48.018747
+2026Q1,Eastern,Katete,MCTI001,MCTI_IND_001,SMEs Supported,75,80,Provincial Commerce Officer,2026-04-15,True,MCTI,MCTI_MSME_Q1_2026_Eastern.csv,2026-05-23 08:51:48.018747
+2026Q1,Eastern,Petauke,MCTI001,MCTI_IND_003,Jobs Created,45,50,Provincial Commerce Officer,2026-04-15,True,MCTI,MCTI_MSME_Q1_2026_Eastern.csv,2026-05-23 08:51:48.018747

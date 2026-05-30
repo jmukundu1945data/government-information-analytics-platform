@@ -1,0 +1,4 @@
+program_id,program_name,department,reporting_frequency,donor_partner,active_flag
+MGEE001,Climate Adaptation Programme,Climate Change Department,Quarterly,EU,Yes
+MGEE002,Community Forestry Initiative,Forestry Department,Quarterly,UNDP,Yes
+MGEE003,Environmental Compliance Monitoring,Environmental Monitoring Unit,Monthly,Government,Yes

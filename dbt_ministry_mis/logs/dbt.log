@@ -1,0 +1,66 @@
+[0m10:22:22.194282 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026E87E60BD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026E87ED9190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026E87EDB590>]}
+
+
+============================== 10:22:22.197452 | fe3d8560-bb58-444f-b678-3073d8f3693a ==============================
+[0m10:22:22.197452 [info ] [MainThread]: Running with dbt=1.11.8
+[0m10:22:22.197452 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\jmuku\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt init ministry_mis', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m10:22:22.237505 [debug] [MainThread]: Starter project path: C:\Users\jmuku\AppData\Local\Programs\Python\Python311\Lib\site-packages\dbt\include\starter_project
+[0m10:22:22.299183 [info ] [MainThread]: 
+Your new dbt project "ministry_mis" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m10:22:22.299183 [info ] [MainThread]: Setting up your profile.
+[0m10:25:03.887549 [error] [MainThread]: Encountered an error:
+
+[0m10:25:03.937450 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\jmuku\AppData\Local\Programs\Python\Python311\Lib\site-packages\dbt\cli\requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jmuku\AppData\Local\Programs\Python\Python311\Lib\site-packages\dbt\cli\requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jmuku\AppData\Local\Programs\Python\Python311\Lib\site-packages\dbt\cli\main.py", line 488, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\jmuku\AppData\Local\Programs\Python\Python311\Lib\site-packages\dbt\task\init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "C:\Users\jmuku\AppData\Local\Programs\Python\Python311\Lib\site-packages\dbt\task\init.py", line 261, in setup_profile
+    adapter = self.ask_for_adapter_choice()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jmuku\AppData\Local\Programs\Python\Python311\Lib\site-packages\dbt\task\init.py", line 242, in ask_for_adapter_choice
+    numeric_choice = click.prompt(prompt_msg, type=click.INT)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jmuku\AppData\Local\Programs\Python\Python311\Lib\site-packages\click\termui.py", line 171, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jmuku\AppData\Local\Programs\Python\Python311\Lib\site-packages\click\termui.py", line 154, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m10:25:03.937450 [debug] [MainThread]: Command `dbt init` failed at 10:25:03.937450 after 161.85 seconds
+[0m10:25:03.937450 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026E87E60850>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026E87EEA7D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026E87E53D10>]}
+[0m10:25:03.937450 [debug] [MainThread]: Flushing usage events
+[0m10:25:05.417797 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m10:27:34.897155 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002300C4E99D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002300C4E8E90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002300C4E8E10>]}
+
+
+============================== 10:27:34.897155 | 1de9c706-143e-46b4-a0e3-82504b584153 ==============================
+[0m10:27:34.897155 [info ] [MainThread]: Running with dbt=1.11.11
+[0m10:27:34.897155 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\jmuku\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt init ministry_mis', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m10:27:34.927103 [info ] [MainThread]: A project called ministry_mis already exists here.
+[0m10:27:34.927103 [debug] [MainThread]: Command `dbt init` succeeded at 10:27:34.927103 after 0.11 seconds
+[0m10:27:34.927103 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002300C42C650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002300C43AE50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002300C418350>]}
+[0m10:27:34.927103 [debug] [MainThread]: Flushing usage events
+[0m10:27:36.115452 [debug] [MainThread]: An error was encountered while trying to flush usage events

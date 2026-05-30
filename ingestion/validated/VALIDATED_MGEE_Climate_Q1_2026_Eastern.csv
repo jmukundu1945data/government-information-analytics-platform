@@ -1,0 +1,4 @@
+reporting_period,province,district,program_id,indicator_code,indicator_name,reported_value,target_value,reporting_officer,submission_date,is_valid_geo,ministry,source_file,ingestion_timestamp
+2026Q1,Eastern,Chipata,MGEE001,MGEE_IND_001,Households Supported,300,250,Provincial Environment Officer,2026-04-16,True,MGEE,MGEE_Climate_Q1_2026_Eastern.csv,2026-05-23 08:51:48.041339
+2026Q1,Eastern,Katete,MGEE001,MGEE_IND_002,Climate Adaptation Activities,12,10,Provincial Environment Officer,2026-04-16,True,MGEE,MGEE_Climate_Q1_2026_Eastern.csv,2026-05-23 08:51:48.041339
+2026Q1,Eastern,Petauke,MGEE002,MGEE_IND_003,Trees Planted,5000,4500,Forestry Officer,2026-04-16,True,MGEE,MGEE_Climate_Q1_2026_Eastern.csv,2026-05-23 08:51:48.041339

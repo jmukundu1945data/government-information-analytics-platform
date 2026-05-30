@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: stg_ministry_reports
+    description: Clean staging view for ministry reporting submissions.
+    columns:
+      - name: ministry
+        tests:
+          - not_null
+      - name: reporting_period
+        tests:
+          - not_null
+      - name: province
+        tests:
+          - not_null
+      - name: district
+        tests:
+          - not_null
+      - name: program_id
+        tests:
+          - not_null
+      - name: indicator_code
+        tests:
+          - not_null
+      - name: reported_value
+        tests:
+          - not_null
+      - name: target_value
+        tests:
+          - not_null
+
+  - name: mart_ministry_performance
+    description: Power BI-ready performance mart for ministry reporting.
+    columns:
+      - name: ministry
+        tests:
+          - not_null
+      - name: reporting_period
+        tests:
+          - not_null
+      - name: program_id
+        tests:
+          - not_null
+      - name: indicator_code
+        tests:
+          - not_null
