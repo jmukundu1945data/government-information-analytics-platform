@@ -1,8 +1,10 @@
 import duckdb
+from pathlib import Path
 
-DB_FILE = r"C:\DAI_MIS_SIMULATION\database\ministry_mis.duckdb"
+ROOT = Path(__file__).resolve().parents[2]
+DB_FILE = ROOT / "database" / "ministry_mis.duckdb"
 
-con = duckdb.connect(DB_FILE)
+con = duckdb.connect(str(DB_FILE))
 
 con.execute("""
 CREATE OR REPLACE VIEW mart_dq_scorecard AS

@@ -2,7 +2,7 @@ import random
 from pathlib import Path
 import pandas as pd
 
-ROOT = Path(r"C:\DAI_MIS_SIMULATION")
+ROOT = Path(__file__).resolve().parents[1]
 
 MCTI_OUT = ROOT / "MCTI" / "raw_submissions" / "MCTI_WEIGHTED_2025_2026.csv"
 MGEE_OUT = ROOT / "MGEE" / "raw_submissions" / "MGEE_WEIGHTED_2025_2026.csv"

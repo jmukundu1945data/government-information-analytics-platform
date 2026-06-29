@@ -7,7 +7,7 @@ from datetime import datetime
 # CONFIGURATION
 # =====================================================
 
-ROOT = Path(r"C:\DAI_MIS_SIMULATION")
+ROOT = Path(__file__).resolve().parents[2]
 
 MCTI_FOLDER = ROOT / "MCTI" / "raw_submissions"
 MGEE_FOLDER = ROOT / "MGEE" / "raw_submissions"
