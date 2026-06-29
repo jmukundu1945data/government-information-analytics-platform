@@ -1,15 +1,58 @@
-# DAI Ministry MEL/MIS Ecosystem Simulation
+# Government Information Analytics Platform
 
-## Project Overview
+## Portfolio Summary
 
-This project is a realistic simulation of a Ministry Monitoring, Evaluation, Learning and Management Information System (MEL/MIS) designed to demonstrate enterprise analytics engineering, dimensional modeling, semantic data modeling, data quality management, executive reporting, geospatial analytics, drillthrough analysis, and row-level security.
+This repository presents a full analytics engineering and Power BI portfolio project that simulates a Ministry Monitoring, Evaluation, Learning, and Management Information System (MEL/MIS) for government reporting. It demonstrates how raw ministry reporting data can be transformed into governed, decision-ready analytics for executives, program managers, M&E teams, provincial users, data managers, analysts, and technical reviewers.
 
-The solution simulates reporting operations for two ministries:
+The project is designed to show practical capability across Data Analyst, BI Analyst, Analytics Engineer, Reporting Analyst, and Power BI Developer responsibilities, including SQL transformation, dimensional modeling, semantic modeling, DAX measures, data quality monitoring, dashboard development, drillthrough analysis, geospatial reporting, and row-level security.
+
+The solution simulates reporting operations for two government ministries:
 
 - Ministry of Commerce, Trade and Industry (MCTI)
 - Ministry of Green Economy and Environment (MGEE)
 
 Rather than focusing only on dashboard development, the project emphasizes the complete analytical lifecycle from data modeling through decision support.
+
+## Project Highlights
+
+- Simulated government ministry MIS analytics platform
+- SQL transformation and DuckDB analytical data layer
+- dbt-style staging, dimension, mart, and Power BI reporting models
+- Kimball-style dimensional modeling with conformed dimensions
+- Power BI semantic model with reusable DAX measures
+- Executive KPI dashboards and operational reporting pages
+- Data quality scorecards and exception reporting
+- Azure Maps geospatial analytics
+- Drillthrough analysis and row-level security demonstration
+
+## Recruiter Snapshot
+
+This project demonstrates hands-on experience with:
+
+- SQL-based analytics engineering and reporting transformations
+- DuckDB analytical database modeling
+- dbt-style staging, dimension, mart, and reporting layer design
+- Kimball-style dimensional modeling using conformed dimensions and star schema principles
+- Power BI semantic modeling, reusable DAX measures, and report development
+- Executive KPI reporting, operational dashboards, and drillthrough analysis
+- Data quality scorecards, exception reporting, and reporting governance
+- Azure Maps geospatial analytics and province-level performance visualization
+- Row-level security (RLS) using conformed dimension-based filtering
+- End-to-end decision-support system design for public-sector reporting
+
+## Business Problem
+
+Many reporting systems collect large volumes of data but provide limited analytical capability for decision makers. In ministry and donor-funded program environments, this often creates slow reporting cycles, inconsistent performance views, limited data quality visibility, and difficulty moving from raw submissions to actionable insight.
+
+This simulation demonstrates how modern analytics engineering principles can turn ministry reporting data into an enterprise decision-support platform that supports:
+
+- Executive visibility into key performance indicators
+- Program and ministry performance monitoring
+- Provincial and district-level analysis
+- Data quality oversight and exception management
+- Geographic performance review
+- Secure role-based reporting access
+- Consistent semantic definitions across dashboards
 
 ## Architecture Snapshot
 
@@ -17,24 +60,9 @@ Rather than focusing only on dashboard development, the project emphasizes the c
 
 ---
 
-## Why This Project Was Built
-
-Many reporting systems focus heavily on collecting data but provide limited analytical capability.
-
-The purpose of this simulation was to demonstrate how modern analytics engineering principles can transform ministry reporting data into an enterprise decision-support platform capable of serving:
-
-- Executives
-- Program Managers
-- M&E Officers
-- Data Managers
-- Analysts
-- Provincial Users
-
----
-
 ## Solution Architecture
 
-The solution follows a modern analytics engineering architecture:
+The solution follows a modern analytics engineering architecture.
 
 ### Data Layer
 
@@ -74,7 +102,7 @@ and reporting tables:
 
 ---
 
-## Enterprise Features Demonstrated
+## Enterprise Analytics Features Demonstrated
 
 ### Dimensional Modeling
 
@@ -127,7 +155,7 @@ Implemented:
 - Indicator-level exploration
 - Context-aware navigation
 
-### Row Level Security (RLS)
+### Row-Level Security (RLS)
 
 Implemented:
 
@@ -141,49 +169,51 @@ Implemented:
 
 ### Executive Overview
 
-High-level KPI monitoring and executive visibility.
+High-level KPI monitoring and executive visibility for fast review of ministry performance, reporting status, and priority areas.
 
 ![Executive Overview dashboard](screenshots/01_Executive_Overview.png)
 
 ### Ministry Performance Analysis
 
-Performance analysis by ministry, indicator, and province.
+Performance analysis by ministry, indicator, and province to support program review and management reporting.
 
 ![Ministry Performance dashboard](screenshots/02_Ministry_Performance.png)
 
 ### Data Quality Dashboard
 
-Monitoring of reporting quality and exception management.
+Monitoring of reporting quality, missing values, negative values, and exception management.
 
 ![Data Quality dashboard](screenshots/03_Data_Quality.png)
 
 ### Provincial Reporting Dashboard
 
-Province and district performance analysis.
+Province and district performance analysis for decentralized monitoring and subnational reporting, demonstrated through the existing Executive Overview, Ministry Performance Analysis, and Geospatial Performance dashboards.
 
 ### Indicator Analysis Dashboard
 
-Indicator-level reporting and performance review.
+Indicator-level reporting and performance review for detailed program and M&E analysis, demonstrated through the existing Executive Overview, Ministry Performance Analysis, and Geospatial Performance dashboards.
 
 ### Trend & Time Intelligence Dashboard
 
-YTD, MoM, and trend monitoring.
+YTD, MoM, and trend monitoring to support period-over-period performance analysis.
 
 ![Time Intelligence dashboard](screenshots/04_Time_Intelligence.png)
 
 ### Geospatial Performance Dashboard
 
-Azure Maps-based geographic reporting.
+Azure Maps-based geographic reporting for province-level performance visualization.
 
 ![Geospatial Performance dashboard](screenshots/05_Geospatial_Map.png)
 
 ### Province Drillthrough Dashboard
 
-Analyst-oriented investigative reporting.
+Analyst-oriented investigative reporting for moving from summary results into province and district detail.
+
+![Province Drillthrough dashboard](screenshots/07_Province_Drillthrough.png)
 
 ### Row-Level Security Demo
 
-Province-specific reporting access demonstration.
+Province-specific reporting access demonstration showing how enterprise-style security can be applied through the semantic model.
 
 ![Row-Level Security demo](screenshots/06_RLS_Demo.png)
 
@@ -332,17 +362,17 @@ The dashboard screenshots in the `screenshots/` folder show the main report page
 ## Repository Structure
 
 ```text
-DAI_MIS_SIMULATION/
-|-- architecture/
-|-- consultancy_outputs/
-|-- database/
-|-- dbt_ministry_mis/
-|-- Docs/
-|-- ingestion/
-|-- screenshots/
-|-- shared_reference/
-|-- simulation_scripts/
-`-- README.md
+government-information-analytics-platform/
+|-- architecture/          Solution architecture diagram and supporting assets
+|-- consultancy_outputs/   Supporting project outputs
+|-- database/              DuckDB analytical database
+|-- dbt_ministry_mis/      dbt-style analytics engineering project
+|-- Docs/                  Executive, architecture, dashboard, and portfolio notes
+|-- ingestion/             Data loading, validation, and processing scripts
+|-- screenshots/           Power BI dashboard screenshots
+|-- shared_reference/      Shared reference data such as geography
+|-- simulation_scripts/    Scripts used to generate simulated ministry data
+`-- README.md              Public portfolio overview
 ```
 
 ---
@@ -358,7 +388,7 @@ See the Docs folder for:
 
 ---
 
-## Final Reflection
+## Portfolio Value
 
 This project demonstrates that enterprise analytics solutions are not primarily about dashboards.
 
@@ -372,6 +402,8 @@ They are about:
 - Business Understanding
 
 The simulation was intentionally designed to showcase analytics engineering thinking and enterprise reporting concepts rather than simply producing visualizations.
+
+For recruiters, hiring managers, consulting clients, and technical reviewers, the project provides evidence of practical ability to design reporting data models, build Power BI dashboards, define semantic calculations, monitor data quality, apply RLS, and connect analytics outputs to real decision-support needs.
 
 ---
 
