@@ -1,23 +1,28 @@
 /*=============================================================================
   Government Information Analytics Platform - Snowflake Migration
   File: 03_file_formats.sql
-  Purpose: Scaffold Snowflake file format definitions.
-  Author: Jonathan Mukunda
-  Date: 2026-07-20
+  Purpose: Define the CSV file format for weighted ministry report files.
+  Author: Jonathan Mukundu
+  Date: 2026-07-21
 
   Revision History:
-  - 2026-07-20 | Jonathan Mukunda | Initial scaffold.
+  - 2026-07-20 | Jonathan Mukundu | Initial scaffold.
+  - 2026-07-21 | Jonathan Mukundu | Implemented weighted ministry CSV format.
 =============================================================================*/
 
--- SECTION 1: SOURCE FORMAT INVENTORY
--- TODO: Document source file types and formatting characteristics.
+USE ROLE ACCOUNTADMIN;
+USE WAREHOUSE GOV_MIS_WH;
+USE DATABASE GOVERNMENT_MIS;
 
--- SECTION 2: FILE FORMAT DEFINITIONS
--- TODO: Add file format definitions after source profiling is complete.
+CREATE OR REPLACE FILE FORMAT GOVERNMENT_MIS.RAW.MINISTRY_REPORTS_CSV_FORMAT
+    TYPE = CSV
+    FIELD_DELIMITER = ','
+    SKIP_HEADER = 1
+    FIELD_OPTIONALLY_ENCLOSED_BY = '"'
+    ESCAPE_UNENCLOSED_FIELD = NONE
+    EMPTY_FIELD_AS_NULL = TRUE
+    NULL_IF = ('', 'NULL', 'null')
+    ENCODING = 'UTF8';
 
--- SECTION 3: FORMAT VALIDATION
--- TODO: Define tests for parsing and format compatibility.
-
--- TRANSACTION WRAPPER
--- TODO: Add BEGIN/COMMIT transaction control when implementation starts.
-
+SHOW FILE FORMATS LIKE 'MINISTRY_REPORTS_CSV_FORMAT'
+    IN SCHEMA GOVERNMENT_MIS.RAW;

@@ -1,23 +1,78 @@
 /*=============================================================================
   Government Information Analytics Platform - Snowflake Migration
   File: 06_validation.sql
-  Purpose: Scaffold migration validation checks.
-  Author: Jonathan Mukunda
-  Date: 2026-07-20
+  Purpose: Validate loaded ministry data against source expectations and rules.
+  Author: Jonathan Mukundu
+  Date: 2026-07-21
 
   Revision History:
-  - 2026-07-20 | Jonathan Mukunda | Initial scaffold.
+  - 2026-07-20 | Jonathan Mukundu | Initial scaffold.
+  - 2026-07-21 | Jonathan Mukundu | Implemented post-load validation queries.
 =============================================================================*/
 
--- SECTION 1: STRUCTURAL VALIDATION
--- TODO: Define object and schema validation checks.
+USE ROLE ACCOUNTADMIN;
+USE WAREHOUSE GOV_MIS_WH;
+USE DATABASE GOVERNMENT_MIS;
 
--- SECTION 2: DATA VALIDATION
--- TODO: Define row-count, completeness, and reconciliation checks.
+-- Overall source reconciliation: expected total = 15,840 rows.
+SELECT
+    'TOTAL' AS SCOPE,
+    15840 AS EXPECTED_ROWS,
+    COUNT(*) AS ACTUAL_ROWS,
+    IFF(COUNT(*) = 15840, 'PASS', 'FAIL') AS VALIDATION_STATUS
+FROM GOVERNMENT_MIS.RAW.RAW_MINISTRY_REPORTS;
 
--- SECTION 3: ACCEPTANCE CRITERIA
--- TODO: Document validation thresholds and sign-off requirements.
+-- Ministry reconciliation: MCTI = 8,640 rows; MGEE = 7,200 rows.
+WITH EXPECTED AS (
+    SELECT 'MCTI' AS MINISTRY, 8640 AS EXPECTED_ROWS
+    UNION ALL
+    SELECT 'MGEE' AS MINISTRY, 7200 AS EXPECTED_ROWS
+), ACTUAL AS (
+    SELECT MINISTRY, COUNT(*) AS ACTUAL_ROWS
+    FROM GOVERNMENT_MIS.RAW.RAW_MINISTRY_REPORTS
+    GROUP BY MINISTRY
+)
+SELECT
+    EXPECTED.MINISTRY,
+    EXPECTED.EXPECTED_ROWS,
+    COALESCE(ACTUAL.ACTUAL_ROWS, 0) AS ACTUAL_ROWS,
+    IFF(COALESCE(ACTUAL.ACTUAL_ROWS, 0) = EXPECTED.EXPECTED_ROWS,
+        'PASS', 'FAIL') AS VALIDATION_STATUS
+FROM EXPECTED
+LEFT JOIN ACTUAL USING (MINISTRY)
+ORDER BY EXPECTED.MINISTRY;
 
--- TRANSACTION WRAPPER
--- Not applicable to read-only validation queries.
+-- Completeness and non-negative value checks.
+SELECT 'REPORTED_VALUE_NULLS' AS CHECK_NAME, COUNT_IF(REPORTED_VALUE IS NULL) AS ISSUE_ROWS
+FROM GOVERNMENT_MIS.RAW.RAW_MINISTRY_REPORTS
+UNION ALL
+SELECT 'TARGET_VALUE_NULLS', COUNT_IF(TARGET_VALUE IS NULL)
+FROM GOVERNMENT_MIS.RAW.RAW_MINISTRY_REPORTS
+UNION ALL
+SELECT 'REPORTED_VALUE_NEGATIVES', COUNT_IF(REPORTED_VALUE < 0)
+FROM GOVERNMENT_MIS.RAW.RAW_MINISTRY_REPORTS
+UNION ALL
+SELECT 'TARGET_VALUE_NEGATIVES', COUNT_IF(TARGET_VALUE < 0)
+FROM GOVERNMENT_MIS.RAW.RAW_MINISTRY_REPORTS;
 
+-- Duplicate groups at the existing raw business grain.
+SELECT
+    MINISTRY,
+    SOURCE_FILE,
+    REPORTING_PERIOD,
+    PROVINCE,
+    DISTRICT,
+    PROGRAM_ID,
+    INDICATOR_CODE,
+    COUNT(*) AS DUPLICATE_COUNT
+FROM GOVERNMENT_MIS.RAW.RAW_MINISTRY_REPORTS
+GROUP BY
+    MINISTRY,
+    SOURCE_FILE,
+    REPORTING_PERIOD,
+    PROVINCE,
+    DISTRICT,
+    PROGRAM_ID,
+    INDICATOR_CODE
+HAVING COUNT(*) > 1
+ORDER BY DUPLICATE_COUNT DESC, MINISTRY, SOURCE_FILE, REPORTING_PERIOD;

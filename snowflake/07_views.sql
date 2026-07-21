@@ -1,23 +1,21 @@
 /*=============================================================================
   Government Information Analytics Platform - Snowflake Migration
   File: 07_views.sql
-  Purpose: Scaffold analytics and reporting view definitions.
-  Author: Jonathan Mukunda
-  Date: 2026-07-20
+  Purpose: Document raw-layer view ownership for the Snowflake migration.
+  Author: Jonathan Mukundu
+  Date: 2026-07-21
 
   Revision History:
-  - 2026-07-20 | Jonathan Mukunda | Initial scaffold.
+  - 2026-07-20 | Jonathan Mukundu | Initial scaffold.
+  - 2026-07-21 | Jonathan Mukundu | Documented intentional raw-view no-op.
 =============================================================================*/
 
--- SECTION 1: VIEW INVENTORY
--- TODO: Document required analytics and reporting views.
+USE ROLE ACCOUNTADMIN;
+USE WAREHOUSE GOV_MIS_WH;
+USE DATABASE GOVERNMENT_MIS;
 
--- SECTION 2: VIEW DEFINITIONS
--- TODO: Add view definitions after source mappings are approved.
-
--- SECTION 3: SECURITY AND PERFORMANCE
--- TODO: Define secure-view, access, and performance requirements.
-
--- TRANSACTION WRAPPER
--- TODO: Add BEGIN/COMMIT transaction control when implementation starts.
-
+-- INTENTIONAL NO-OP
+-- No raw-layer convenience view is required before the dbt migration.
+-- dbt remains the owner of staging, dimensions, marts, data-quality models,
+-- and Power BI-facing views. Defining those objects here would duplicate the
+-- existing dbt business logic.
